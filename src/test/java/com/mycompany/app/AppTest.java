@@ -1,20 +1,25 @@
 package com.mycompany.app;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class AppTest
 {
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue()
+    public void testAppConstructor() {
+        App app1 = new App();
+        App app2 = new App();
+        assertEquals(app1.getMessage(), app2.getMessage());
+    }
+
+    @Test
+    public void testAppMessage()
     {
-        assertTrue( true );
+        App app = new App();
+        assertEquals("Hello World!", app.getMessage());
     }
 }
