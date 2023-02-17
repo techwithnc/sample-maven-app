@@ -1,1 +1,1 @@
-# sample-maven-app
+# simple-maven-app
