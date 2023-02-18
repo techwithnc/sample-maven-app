@@ -9,11 +9,18 @@ pipeline{
     }
     parameters {
         booleanParam(name: 'TORF', defaultValue: false, description: '')
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
     }
     stages{
         stage("Stage01"){
+            when{
+                expression{
+                    params.VERSION == '1.1.0'
+                }
+            }
             steps{
                 echo "This is Building stage!"
+                echo "This stage is doing on ${params.VERSION}"
                 echo "Current branch is ${env.BRANCH_NAME}"
             }
         }
