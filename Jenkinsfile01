@@ -27,7 +27,7 @@ pipeline{
         stage("Stage03"){
             when{
                 expression{
-                    params.TORF == 'true'
+                    params.TORF == true
                 }
             }
             steps{
