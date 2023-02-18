@@ -7,6 +7,9 @@ pipeline{
         MY_NAME = 'Aung Nyein Chan Oo'
         MY_COMPANY = "WinBrotherGroup"
     }
+    parameters{
+        booleanParam(name: 'executeDeploy', defaultValue: true, description: 'this parameter is used for deploy stage')
+    }
     stages{
         stage("Stage01"){
             steps{
@@ -22,6 +25,11 @@ pipeline{
             }
         }
         stage("Stage03"){
+            when{
+                expression{
+                    executeDeploy == true
+                }
+            }
             steps{
                 echo "This is Deploying stage!"
                 echo "He working at ${MY_COMPANY}"
