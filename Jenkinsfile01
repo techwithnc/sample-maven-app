@@ -6,9 +6,7 @@ pipeline{
     environment{
         MY_NAME = 'Aung Nyein Chan Oo'
         MY_COMPANY = "WinBrotherGroup"
-    }
-    parameters{
-        booleanParam(name: 'executeDeploy', defaultValue: true, description: '')
+        TORF = true
     }
     stages{
         stage("Stage01"){
@@ -26,7 +24,7 @@ pipeline{
         stage("Stage03"){
             when{
                 expression{
-                    executeDeploy == true
+                    ${env.TORF} == true
                 }
             }
             steps{
