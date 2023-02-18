@@ -25,7 +25,7 @@ pipeline{
         stage("Stage03"){
             when{
                 expression{
-                    env.TORF = 'false'
+                    env.TORF == 'false'
                 }
             }
             steps{
