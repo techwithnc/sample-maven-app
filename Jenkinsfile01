@@ -8,7 +8,7 @@ pipeline{
         MY_COMPANY = "WinBrotherGroup"
     }
     parameters{
-        booleanParam(name: 'executeDeploy', defaultValue: true, description: 'this parameter is used for deploy stage')
+        booleanParam(name: 'executeDeploy', defaultValue: true, description: '')
     }
     stages{
         stage("Stage01"){
