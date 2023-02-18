@@ -1,10 +1,14 @@
 pipeline{
     agent any
+    tools{
+        maven '01Maven'
+    }
     stages{
         stage("Stage01"){
             steps{
                 echo "This is Building stage!"
                 echo "Current branch is ${env.BRANCH_NAME}"
+                sh "mvn install"
             }
         }
         stage("Stage02"){
