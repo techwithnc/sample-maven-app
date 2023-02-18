@@ -4,6 +4,7 @@ pipeline{
             step{
                 echo "This is Building stage!"
             }
+        }
         stage("Testing"){
             step{
                 echo "This is Testing stage!"
@@ -13,5 +14,6 @@ pipeline{
             step{
                 echo "This is Deploying stage!"
             }
+        }
     }
 }
