@@ -6,7 +6,7 @@ pipeline{
     environment{
         MY_NAME = 'Aung Nyein Chan Oo'
         MY_COMPANY = "WinBrotherGroup"
-        TORF = true
+        TORF = false
     }
     stages{
         stage("Stage01"){
