@@ -5,6 +5,7 @@ pipeline{
     }
     environment{
         MY_NAME = 'Aung Nyein Chan Oo'
+        MY_COMPANY = "WinBrotherGroup"
     }
     stages{
         stage("Stage01"){
@@ -23,6 +24,7 @@ pipeline{
         stage("Stage03"){
             steps{
                 echo "This is Deploying stage!"
+                echo "He working at ${MY_COMPANY}"
             }
         }
     }
