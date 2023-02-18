@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Stage01"){
             steps{
-                echo "this is stage01"
+                sh "ls -l"
             }
         }
     }
