@@ -8,7 +8,7 @@ pipeline{
         MY_COMPANY = "WinBrotherGroup"
     }
     parameters {
-        booleanParam(name: 'TORF', defaultValue: true, description: '')
+        booleanParam(name: 'TORF', defaultValue: false, description: '')
     }
     stages{
         stage("Stage01"){
