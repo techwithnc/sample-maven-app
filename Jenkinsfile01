@@ -8,14 +8,13 @@ pipeline{
         MY_COMPANY = "WinBrotherGroup"
     }
     parameters{
-        booleanParam(name: 'executeDeploy', defaultValue: false, description: '')
+        booleanParam(name: 'executeDeploy', defaultValue: true, description: '')
     }
     stages{
         stage("Stage01"){
             steps{
                 echo "This is Building stage!"
                 echo "Current branch is ${env.BRANCH_NAME}"
-                sh "mvn install"
             }
         }
         stage("Stage02"){
