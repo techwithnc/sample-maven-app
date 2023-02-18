@@ -3,6 +3,9 @@ pipeline{
     tools{
         maven '01Maven'
     }
+    environment{
+        MY_NAME = 'Aung Nyein Chan Oo'
+    }
     stages{
         stage("Stage01"){
             steps{
@@ -14,6 +17,7 @@ pipeline{
         stage("Stage02"){
             steps{
                 echo "This is Testing stage!"
+                echo "This build is created by ${env.MY_NAME}"
             }
         }
         stage("Stage03"){
