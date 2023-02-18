@@ -6,7 +6,9 @@ pipeline{
     environment{
         MY_NAME = 'Aung Nyein Chan Oo'
         MY_COMPANY = "WinBrotherGroup"
-        TORF = false
+    }
+    parameters {
+        booleanParam(name: 'TORF', defaultValue: true, description: '')
     }
     stages{
         stage("Stage01"){
@@ -19,13 +21,13 @@ pipeline{
             steps{
                 echo "This is Testing stage!"
                 echo "This build is created by ${env.MY_NAME}"
-                echo "Value of TORF is ${env.TORF}"
+                echo "Value of TORF is ${params.TORF}"
             }
         }
         stage("Stage03"){
             when{
                 expression{
-                    env.TORF == 'false'
+                    params.TORF == 'true'
                 }
             }
             steps{
