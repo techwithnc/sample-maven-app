@@ -19,6 +19,7 @@ pipeline{
             steps{
                 echo "This is Testing stage!"
                 echo "This build is created by ${env.MY_NAME}"
+                echo "Value of TORF is ${env.TORF}"
             }
         }
         stage("Stage03"){
