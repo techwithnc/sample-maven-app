@@ -1,0 +1,17 @@
+pipeline{
+    stages{
+        stage("Building"){
+            step{
+                echo "This is Building stage!"
+            }
+        stage("Testing"){
+            step{
+                echo "This is Testing stage!"
+            }
+        }
+        stage("Deploying"){
+            step{
+                echo "This is Deploying stage!"
+            }
+    }
+}
