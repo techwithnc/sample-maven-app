@@ -14,7 +14,7 @@ pipeline {
         stage("Build"){
             steps {
                 sh 'docker image ls'
-                sh 'docker build -t myimage/app:1.0 .'
+                sh 'docker build -t myimage/app:2.0 .'
                 sh 'docker image ls'
             }
         }        
