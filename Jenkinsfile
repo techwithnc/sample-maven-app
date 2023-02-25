@@ -1,23 +1,35 @@
+def mygvscript
 pipeline {
     agent any
     tools{
         maven '01Maven'
     }
     stages{
-        stage("Package"){
-            steps {
-                sh "mvn clean package"
+        stage("Prepare"){
+            steps{
+                script{
+                    mygvscript = load "script.groovy"
+                }
             }
         }
-        stage("Build"){
+        stage("Pack_App"){
             steps {
-                sh 'docker build -t myimage/app:2.0 .'
+                script {
+                    mygvscript.packApp()
+                }
+            }
+        }
+        stage("Build_App"){
+            steps {
+                script {
+                    mygvscript.buildApp()
+                }
             }
         }  
-        stage("Docker Login") {
+        stage("Docker_Login") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-token', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                    sh 'echo $PASS | docker login -u $USER --password-stdin'
+                script {
+                    mygvscript.loginApp()
                 }
             }
         }
