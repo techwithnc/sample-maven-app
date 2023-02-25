@@ -12,6 +12,13 @@ pipeline {
                 }
             }
         }
+        stage("Increment_App"){
+            steps{
+                script{
+                    mygvscript.incrementApp()
+                }
+            }
+        }
         stage("Pack_App"){
             steps {
                 script {

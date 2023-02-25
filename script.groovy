@@ -1,5 +1,11 @@
+def incrementApp() {
+    sh 'mvn build-helper:parse-version versions:set \
+        -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} \
+        versions:commit'
+
+}
 def packApp(){
-    sh "mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion} versions:commit"
+    sh "cat pom.xml | grep 1.1 | grep version"
     sh "mvn clean package"
 
 }
