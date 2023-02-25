@@ -24,7 +24,7 @@ def loginGithub(){
                         sh 'git status'
                         sh 'git branch'
                         sh 'git config --list'
-                        sh "git remote set-url origin https://${USERNAME}:${PASSWORD}https://@github.com/techwithnc/simple-java-maven-app.git"
+                        sh "git remote set-url origin https://${USERNAME}:${PASSWORD}@https://github.com/techwithnc/simple-java-maven-app.git"
                         sh 'git add .'
                         sh 'git commit -m "update app version"'
                         sh 'git push origin HEAD:main'
