@@ -18,7 +18,7 @@ def loginApp(){
                     }
 }
 def loginGithub(){
-    withCredentials([usernamePassword(credentialsId: 'github-ssh', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+    withCredentials([usernamePassword(credentialsId: 'github-user-pass', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                         sh 'git config user.email jenkins@techwithnc.com'
                         sh 'git config user.name jenkins'
                         sh 'git status'
