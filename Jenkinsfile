@@ -10,6 +10,7 @@ pipeline {
                 sh "mvn package"
                 sh 'ls -l target/'
             }
+        }
         stage("Build"){
             steps {
                 sh 'docker image ls'
