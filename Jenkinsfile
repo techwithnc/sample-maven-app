@@ -17,7 +17,15 @@ pipeline {
                 sh 'docker build -t myimage/app:2.0 .'
                 sh 'docker image ls'
             }
-        }        
+        }  
+        stage("Docker Login") {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-token', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                    sh 'echo $PASS | docker login -u $USER --password-stdin'   
+                    sh "login successful"
+                }
+            }
+        }
     }
 }
  
