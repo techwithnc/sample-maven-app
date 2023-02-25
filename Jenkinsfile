@@ -7,7 +7,7 @@ pipeline {
         stage("Package"){
             steps {
                 sh 'ls -l'
-                sh "mvn package"
+                sh "mvn clean package"
                 sh 'ls -l target/'
             }
         }
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-token', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                     sh 'echo $PASS | docker login -u $USER --password-stdin'   
-                    sh "login successful"
+                    sh 'echo login successful'
                 }
             }
         }
