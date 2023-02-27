@@ -26,13 +26,6 @@ pipeline {
                 }
             }
         }
-        stage("Commit_To_Github"){
-            steps {
-                script {
-                    mygvscript.loginGithub()
-                }
-            }
-        }
         // stage("Build_App"){
         //     steps {
         //         script {

@@ -17,20 +17,6 @@ def loginApp(){
                         sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
                     }
 }
-def loginGithub(){
-    withCredentials([usernamePassword(credentialsId: 'github-user-pass', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-                        sh 'git config user.email jenkins@techwithnc.com'
-                        sh 'git config user.name jenkins'
-                        sh 'git status'
-                        sh 'git branch'
-                        sh 'git config --list'
-                        sh "git remote set-url origin https://${USERNAME}:${PASSWORD}@https://github.com/techwithnc/simple-java-maven-app.git"
-                        sh 'git add .'
-                        sh 'git commit -m "update app version"'
-                        sh 'git push origin HEAD:main'
-                    }
-
-}
 def pushApp(){
     sh 'docker push techwithnc/image:5.0'
 }
