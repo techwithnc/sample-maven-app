@@ -18,10 +18,10 @@ pipeline {
             steps{
                 script{
                     mygvscript.incrementApp()
-                    matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
-                    version = matcher[0][1]
-                    env.IMAGE_NAME = "$version-$BUILD_NUMBER"
-                    sh "echo ${env.IMAGE_NAME}"
+                    // matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
+                    // version = matcher[0][1]
+                    // env.IMAGE_NAME = "$version-$BUILD_NUMBER"
+                    // sh "echo ${env.IMAGE_NAME}"
                 }
             }
         }
