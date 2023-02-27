@@ -22,7 +22,7 @@ pipeline {
                 script{
                     mygvscript.buildApp()
                     sh "echo Hello!"
-                    MATCHER = readFile "pom.xml" =~ '<version>(.+)</version>'
+                    MATCHER = readFile 'pom.xml' =~ '<version>(.+)</version>'
                     sh "echo ${env.MATCHER}"
                     APP_VERSION = MATCHER[0][1]
                     sh "echo ${env.APP_VERSION}"
