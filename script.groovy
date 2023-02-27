@@ -4,15 +4,14 @@ def buildApp() {
         versions:commit'
     sh "mvn clean package"
 }
-// def buildApp(){
-//     sh "cat pom.xml | grep 2.1 | grep version"
-//     sh "mvn clean package"
-// }
 def buildImage(){
+    sh "docker build -t techwithnc/simple-java-app:$IMAGE_NAME ."
+    sh "docker image ls"
+}
+def pushImage(){
     withCredentials([usernamePassword(credentialsId: 'dockerhub-token', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-                        sh "docker build -t techwithnc/simple-java-app:$IMAGE_NAME ."
-                        sh "docker image ls"
-                        // sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
+                        sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
+                        sh "echo hello"
                         // sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
                     }
 }

@@ -34,20 +34,13 @@ pipeline {
                 }
             }
         }
-        // stage("Build_IMAGE"){
-        //     steps {
-        //         script {
-        //             mygvscript.buildImage()
-        //         }
-        //     }
-        // }  
-        // stage("Push_IMAGE") {
-        //     steps {
-        //         script {
-        //             mygvscript.pushImage()
-        //         }
-        //     }
-        // }
+        stage("Push_IMAGE") {
+            steps {
+                script {
+                    mygvscript.pushImage()
+                }
+            }
+        }
     }
 }
  
