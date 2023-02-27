@@ -5,7 +5,7 @@ def version
 pipeline {
     agent any
     environment{
-        IMAGE_NAME = ''
+        IMAGE_NAME = '0.0.0'
     }
     tools{
         maven '01Maven'
@@ -25,7 +25,14 @@ pipeline {
                 }
             }
         }
+        stage("Build_IMAGE"){        }
         stage("Build_IMAGE"){
+            steps {
+                script {
+                    mygvscript.buildImage()
+                }
+            }
+        }
             steps {
                 script {
                     mygvscript.buildImage()
