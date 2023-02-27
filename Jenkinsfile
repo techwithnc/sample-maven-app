@@ -3,7 +3,6 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME = ""
-        MATCHER = "1.1.1"
         APP_VERSION = ""
     }
     tools{
@@ -23,8 +22,8 @@ pipeline {
                     mygvscript.buildApp()
                     sh "echo Hello!"
                     sh "ls -l"
-                    MATCHER = readFile(file: 'pom.xml')
-                    sh "echo ${env.MATCHER}"
+                    def MATCHER = readFile(file: 'pom.xml')
+                    sh "echo $MATCHER"
                     // MATCHER = readFile(file: 'pom.xml') =~ '<version>(.+)</version>'
                     // sh "echo ${env.MATCHER}"
                     // APP_VERSION = MATCHER[0][1]
