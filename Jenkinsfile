@@ -25,13 +25,13 @@ pipeline {
                 }
             }
         }
-        // stage("Build_App"){
-        //     steps {
-        //         script {
-        //             mygvscript.buildApp()
-        //         }
-        //     }
-        // }
+        stage("Build_App"){
+            steps {
+                script {
+                    mygvscript.buildApp()
+                }
+            }
+        }
         // stage("Build_IMAGE"){
         //     steps {
         //         script {
