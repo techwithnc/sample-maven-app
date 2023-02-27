@@ -4,9 +4,9 @@ def version
 
 pipeline {
     agent any
-    environment{
-        IMAGE_NAME = ""
-    }
+    // environment {
+    //     IMAGE_NAME = ""
+    // }
     tools{
         maven '01Maven'
     }
