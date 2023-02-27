@@ -6,7 +6,7 @@ def buildApp() {
 // def buildApp(){
 //     sh "cat pom.xml | grep 1.1 | grep version"
 //     sh "mvn clean package"
-}
+// }
 def buildImage(){
     withCredentials([usernamePassword(credentialsId: 'dockerhub-token', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                         sh "docker build -t techwithnc/simple-java-app:$IMAGE_NAME ."
@@ -16,5 +16,5 @@ def buildImage(){
 }
 // def pushImage(){
 //     sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
-}
+// }
 return this
