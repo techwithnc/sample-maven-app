@@ -24,7 +24,7 @@ pipeline {
                     sh "echo Hello!"
                     sh "ls -l"
                     MATCHER = readFile(file: 'pom.xml')
-                    sh "echo ${env.MATCHER}"
+                    sh "echo ${MATCHER}"
                     // MATCHER = readFile(file: 'pom.xml') =~ '<version>(.+)</version>'
                     // sh "echo ${env.MATCHER}"
                     // APP_VERSION = MATCHER[0][1]
