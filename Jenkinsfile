@@ -22,8 +22,12 @@ pipeline {
                     mygvscript.buildApp()
                     sh "echo Hello!"
                     sh "ls -l"
-                    def MATCHER = readFile(file: 'pom.xml' =~ '<version>(.+)</version>')
-                    println(MATCHER)
+                    def IMAGE = readMavenPom().getArtifactId()
+                    def VERSION = readMavenPom().getVersion()
+                    echo "IMAGE: ${IMAGE}"
+                    echo "VERSION: ${VERSION}"
+                    // def MATCHER = readFile(file: 'pom.xml' =~ '<version>(.+)</version>')
+                    // println(MATCHER)
                     // MATCHER = readFile(file: 'pom.xml') =~ '<version>(.+)</version>'
                     // sh "echo ${env.MATCHER}"
                     // APP_VERSION = MATCHER[0][1]
