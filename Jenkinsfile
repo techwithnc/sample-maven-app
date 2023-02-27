@@ -21,9 +21,12 @@ pipeline {
             steps{
                 script{
                     mygvscript.buildApp()
+                    sh "echo Hello!"
                     MATCHER = readFile('pom.xml') =~ '<version>(.+)</version>'
+                    sh "echo ${env.MATCHER}"
                     APP_VERSION = MATCHER[0][1]
-                    IMAGE_NAME = "${env.APP_VERSION}-${env.BUILD_NUMBER}"
+                    sh "echo ${env.APP_VERSION}"
+                    IMAGE_NAME = "$APP_VERSION-$BUILD_NUMBER"
                     sh "echo ${env.IMAGE_NAME}"
                 }
             }
