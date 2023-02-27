@@ -22,7 +22,7 @@ pipeline {
                     mygvscript.buildApp()
                     APP_VERSION = readMavenPom().getVersion()
                     echo "VERSION: ${APP_VERSION}"
-                    IMAGE_NAME = "${BUILD_NUMBER}"
+                    IMAGE_NAME = "${env.BUILD_NUMBER}"
                     echo "INAME_NAME: ${env.IMAGE_NAME}"
                 }
             }
