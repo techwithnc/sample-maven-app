@@ -9,10 +9,6 @@ def buildApp() {
 }
 def buildImage(){
     withCredentials([usernamePassword(credentialsId: 'dockerhub-token', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-                        matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
-                        version = matcher[0][1]
-                        IMAGE_NAME = "$version-$BUILD_NUMBER"
-                        sh "echo ${env.IMAGE_NAME}"
                         sh "docker build -t techwithnc/simple-java-app:$IMAGE_NAME ."
                         sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
                         sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"

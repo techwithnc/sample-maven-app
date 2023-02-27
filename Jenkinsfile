@@ -1,12 +1,11 @@
 def mygvscript
-def matcher
-def version
-
 pipeline {
     agent any
-    // environment {
-    //     IMAGE_NAME = ""
-    // }
+    environment {
+        IMAGE_NAME = ""
+        MATCHER = ""
+        APP_VERSION = ""
+    }
     tools{
         maven '01Maven'
     }
@@ -22,6 +21,10 @@ pipeline {
             steps{
                 script{
                     mygvscript.buildApp()
+                    MATCHER = readFile('pom.xml') =~ '<version>(.+)</version>'
+                    APP_VERSION = MATCHER[0][1]
+                    IMAGE_NAME = "${env.APP_VERSION}-${env.BUILD_NUMBER}"
+                    sh "echo ${env.IMAGE_NAME}"
                 }
             }
         }
