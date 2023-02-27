@@ -11,11 +11,7 @@ def buildImage(){
 def pushImage(){
     withCredentials([usernamePassword(credentialsId: 'dockerhub-token', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                         sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
-                        sh "echo hello"
-                        // sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
+                        sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
                     }
 }
-// def pushImage(){
-//     sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
-// }
 return this
