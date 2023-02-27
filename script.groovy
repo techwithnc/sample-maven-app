@@ -18,7 +18,7 @@ def buildImage(){
                         sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
                     }
 }
-def pushImage(){
-    sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
+// def pushImage(){
+//     sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
 }
 return this
