@@ -2,9 +2,10 @@ def buildApp() {
     sh 'mvn build-helper:parse-version versions:set \
         -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} \
         versions:commit'
+    // sh "mvn clean package"
 }
 // def buildApp(){
-//     sh "cat pom.xml | grep 1.1 | grep version"
+//     sh "cat pom.xml | grep 2.1 | grep version"
 //     sh "mvn clean package"
 // }
 def buildImage(){
