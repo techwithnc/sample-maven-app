@@ -19,27 +19,27 @@ pipeline {
                 }
             }
         }
-        stage("Build_App"){
-            steps {
-                script {
-                    mygvscript.buildApp()
-                }
-            }
-        }
-        stage("Build_IMAGE"){
-            steps {
-                script {
-                    mygvscript.buildImage()
-                }
-            }
-        }  
-        stage("Push_IMAGE") {
-            steps {
-                script {
-                    mygvscript.pushImage()
-                }
-            }
-        }
+        // stage("Build_App"){
+        //     steps {
+        //         script {
+        //             mygvscript.buildApp()
+        //         }
+        //     }
+        // }
+        // stage("Build_IMAGE"){
+        //     steps {
+        //         script {
+        //             mygvscript.buildImage()
+        //         }
+        //     }
+        // }  
+        // stage("Push_IMAGE") {
+        //     steps {
+        //         script {
+        //             mygvscript.pushImage()
+        //         }
+        //     }
+        // }
     }
 }
  
