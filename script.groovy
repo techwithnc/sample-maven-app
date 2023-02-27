@@ -2,22 +2,22 @@ def incrementApp() {
     sh 'mvn build-helper:parse-version versions:set \
         -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} \
         versions:commit'
-
+    def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
+    def version = matcher[0][1]
+    env.IMAGE_NAME = "$version-$BUILD_NUMBER"
 }
-def packApp(){
+def buildApp(){
     sh "cat pom.xml | grep 1.1 | grep version"
     sh "mvn clean package"
-
 }
-def buildApp() {
-    sh 'docker build -t techwithnc/simple-maven-app:1.0 .'
-}
-def loginApp(){
+def buildImage(){
     withCredentials([usernamePassword(credentialsId: 'dockerhub-token', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                        sh "docker build -t techwithnc/simple-java-app:$IMAGE_NAME ."
                         sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
+                        sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
                     }
 }
-def pushApp(){
-    sh 'docker push techwithnc/image:5.0'
+def pushImage(){
+    sh "docker push techwithnc/simple-java-app:$IMAGE_NAME"
 }
 return this

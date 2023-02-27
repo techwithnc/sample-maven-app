@@ -19,27 +19,27 @@ pipeline {
                 }
             }
         }
-        stage("Pack_App"){
+        stage("Build_App"){
             steps {
                 script {
-                    mygvscript.packApp()
+                    mygvscript.buildApp()
                 }
             }
         }
-        // stage("Build_App"){
-        //     steps {
-        //         script {
-        //             mygvscript.buildApp()
-        //         }
-        //     }
-        // }  
-        // stage("Docker_Login") {
-        //     steps {
-        //         script {
-        //             mygvscript.loginApp()
-        //         }
-        //     }
-        // }
+        stage("Build_IMAGE"){
+            steps {
+                script {
+                    mygvscript.buildImage()
+                }
+            }
+        }  
+        stage("Push_IMAGE") {
+            steps {
+                script {
+                    mygvscript.pushImage()
+                }
+            }
+        }
     }
 }
  
