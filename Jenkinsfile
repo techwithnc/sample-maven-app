@@ -23,7 +23,7 @@ pipeline {
                     APP_VERSION = readMavenPom().getVersion()
                     echo "VERSION: ${APP_VERSION}"
                     IMAGE_NAME = "${env.BUILD_ID}"
-                    echo "INAME_NAME: ${env.IMAGE_NAME}"
+                    echo "IMAGE_NAME: ${IMAGE_NAME}"
                 }
             }
         }
