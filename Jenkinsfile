@@ -39,6 +39,13 @@ pipeline {
                 }
             }
         }
+        stage("Increment_APP_Version") {
+            steps {
+                script {
+                    mygvscript.incrementapp()
+                }
+            }
+        }
     }
 }
  
