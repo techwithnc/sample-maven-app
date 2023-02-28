@@ -24,5 +24,6 @@ def incrementapp(){
                         sh 'git add .'
                         sh 'git commit -m "update app version"'
                         sh 'git push origin HEAD:main'
+    }
 }
 return this
