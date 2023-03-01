@@ -19,7 +19,7 @@ def pushcode(){
                         sh 'git config user.name jenkins'
                         sh "git remote set-url origin https://${USERNAME}:${PASSWORD}@github.com/techwithnc/simple-java-maven-app.git"
                         sh 'git add .'
-                        sh 'git commit -m "update version to $NEW_APP_VERSION"'
+                        sh "git commit -m 'update version to $NEW_APP_VERSION'"
                         sh "echo $NEW_APP_VERSION"
                         sh 'git push origin HEAD:main'
     }
