@@ -1,10 +1,10 @@
 def mygvscript
+def NEW_APP_VERSION
 pipeline {
     agent any
     environment {
         IMAGE_NAME = ""
         APP_VERSION = ""
-        NEW_APP_VERSION = ""
     }
     tools{
         maven '01Maven'
