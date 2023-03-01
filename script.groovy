@@ -22,13 +22,11 @@ def pushcode(){
                         sh 'git commit -m "update version to ${NEW_APP_VERSION}"'
                         sh 'git push origin HEAD:main'
     }
+}
 def incrementapp(){
         sh 'mvn build-helper:parse-version versions:set \
         -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} \
         versions:commit'
         NEW_APP_VERSION = readMavenPom().getVersion()
-
-
-}
 }
 return this
