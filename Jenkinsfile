@@ -44,6 +44,13 @@ pipeline {
                 }
             }
         }
+        stage("Push_Codes") {
+            steps {
+                script {
+                    mygvscript.pushcode()
+                }
+            }
+        }
     }
 }
  
