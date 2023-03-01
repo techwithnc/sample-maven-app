@@ -4,6 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = ""
         APP_VERSION = ""
+        NEW_APP_VERSION = ""
     }
     tools{
         maven '01Maven'
