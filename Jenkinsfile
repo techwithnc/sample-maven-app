@@ -19,9 +19,7 @@ pipeline {
         stage("Build_App"){
             steps{
                 script{
-                    mygvscript.buildApp()
-                    APP_VERSION = readMavenPom().getVersion()
-                    IMAGE_NAME = "${APP_VERSION}-${env.BUILD_ID}"
+                    mygvscript.buildApp()  
                 }
             }
         }
